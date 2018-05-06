@@ -10,6 +10,7 @@ Technology used:
 * Kubernetes
 * Kong
 * DNS outside AWS
+* ~~Rancher2.0 (not optimal for this)~~
 
 Flow-Setup:
 ```kong.kain.tech/* -> kong-proxy ELB -> kong-ingress -> backend services```
