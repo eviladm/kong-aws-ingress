@@ -3,21 +3,27 @@
 Goal: setup a k8s cluster in AWS and provision services with kong as ingress controller
 
 Technology used:
-Linux
-AWS (ec2, bucket, elb)
-Kops (or kubespray)
-Kubernetes
-Kong
-DNS outside AWS
+
+* Linux
+* AWS (ec2, bucket, elb)
+* Kops (or kubespray)
+* Kubernetes
+* Kong
+* DNS outside AWS
 
 Flow-Setup:
-kong.kain.tech/* -> kong-proxy ELB -> kong-ingress -> backend services
+```kong.kain.tech/* -> kong-proxy ELB -> kong-ingress -> backend services```
 
 Steps:
+
 Install k8s with kops or kubespray, both tools will assist with creating your .kube/config
+
 (Kops is easier in cloud deployments.) lmgtfy kops aws or kubespray aws are good starting points.
+
 Verify with kubectl cluster-status or kops verify cluster $CLUSTERNAME
+
 Once your cluster is ready create some namespace and deploy kong
+
 Download the official kong setup yaml for minikube and change the kong-proxy service to LoadBalancer to get a public ELB IP:
 ```curl -o kong.yaml https://raw.githubusercontent.com/Kong/kubernetes-ingress-controller/master/deploy/single/all-in-one-postgres.yaml```
 
